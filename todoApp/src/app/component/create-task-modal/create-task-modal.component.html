@@ -1,0 +1,24 @@
+<div class="modal-overlay" (click)="closeModal()"></div>
+<div class="modal">
+  <h2>Créer une nouvelle tâche</h2>
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="title">Titre</label>
+      <input id="title" type="text" [(ngModel)]="task.title" name="title" required />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" [(ngModel)]="task.description" name="description" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="deadline">Date limite :</label>
+      <input id="deadline" type="date" [(ngModel)]="task.deadline" name="deadline" required />
+    </div>
+
+    <button type="submit">Créer</button>
+    <button type="button" (click)="closeModal()">Annuler</button>
+  </form>
+</div>

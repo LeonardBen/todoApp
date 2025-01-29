@@ -1,0 +1,27 @@
+<ion-grid class="todo-board">
+    <ion-row class="ion-row-container">
+        <ion-col size="12" size-md="4" *ngFor="let column of columns" class="todo-column">
+            <ion-card>
+                <ion-card-header class="header-col">
+                    <ion-card-title>{{ column.status }}</ion-card-title>
+                    <ion-button (click)="openModal(column.status)" fill="outline" color="primary" class="btn-add-tasks">
+                        +
+                    </ion-button>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <div class="todo-tasks">
+                        <div *ngFor="let task of column.tasks">
+                            <app-task-card [task]="task" (deleteTask)="deleteTask(column, task)"
+                                (taskStatusChanged)="onTaskStatusChanged($event)"></app-task-card>
+                        </div>
+                        <p *ngIf="!column.tasks.length">Aucune tâche pour cette colonne.</p>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+</ion-grid>
+
+<app-create-task-modal *ngIf="showModal" [status]="selectedStatus"
+    (taskCreated)="onTaskCreated($event)"></app-create-task-modal>

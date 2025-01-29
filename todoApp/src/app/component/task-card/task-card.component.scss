@@ -1,0 +1,48 @@
+.tasks {
+    display       : flex;
+    flex-direction: column;
+    gap           : 10px;
+}
+
+
+.task-card {
+    display         : block;
+    border          : 1px solid #ccc;
+    border-radius   : 5px;
+    padding         : 10px;
+    margin-bottom   : 10px;
+    background-color: #fff;
+    transition      : background-color 0.3s ease;
+    box-shadow      : 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-card.overdue {
+    background-color: #ffcccc;
+    border-color    : #ff0000;
+
+}
+
+.header-card {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+}
+
+.btn-move {
+    background-color: #007bff;
+    color           : white;
+    border          : none;
+    border-radius   : 4px;
+    cursor          : pointer;
+    transition      : background-color 0.3s;
+    padding         : 5px;
+    margin          : 10px;
+}
+
+.btn-delete-task {
+    background-color: unset;
+}
+
+.btn-delete-task:hover {
+    cursor: pointer;
+}

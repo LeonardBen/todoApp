@@ -1,0 +1,27 @@
+<ion-card [ngClass]="{'overdue': isTaskOverdue(task)}" class="task-card">
+  <ion-card-header class="header-card">
+    <ion-card-title>{{ task.title }}</ion-card-title>
+
+    <!-- Bouton de suppression -->
+    <ion-button (click)="onDeleteTask()" color="danger" expand="block">
+      <ion-icon name="trash" slot="start" class="btn-delete-task"></ion-icon> <i class="fa fa-trash-o"
+        style="font-size:30px;color:red"></i>
+    </ion-button>
+
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>{{ task.description }}</p>
+    <p>Échéance : {{ task.deadline | date:'shortDate' }}</p>
+
+    <!-- Boutons de déplacement -->
+    <ion-button *ngIf="task.status !== 'In Progress'" (click)="moveToInProgress()" expand="block" color="primary"
+      class="btn-move">In progress
+    </ion-button>
+    <ion-button *ngIf="task.status !== 'Done'" (click)="moveToDone()" expand="block" color="success"
+      class="btn-move">Done
+    </ion-button>
+  </ion-card-content>
+
+  <p *ngIf="!task.title">Erreur : Aucune tâche à afficher.</p>
+</ion-card>

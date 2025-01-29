@@ -35,3 +35,16 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+body {
+    display: block !important;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size  : 16px;
+    line-height: 1.5;
+    color      : #333;
+    margin     : 0;
+    padding    : 0;
+}
