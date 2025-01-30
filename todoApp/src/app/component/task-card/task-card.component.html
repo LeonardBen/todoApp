@@ -14,6 +14,12 @@
     <p>{{ task.description }}</p>
     <p>Échéance : {{ task.deadline | date:'shortDate' }}</p>
 
+    <p *ngIf="task.latitude && task.longitude">
+      <a [href]="'https://www.google.com/maps?q=' + task.latitude + ',' + task.longitude" target="_blank">
+        📍
+      </a>
+    </p>
+
     <!-- Boutons de déplacement -->
     <ion-button *ngIf="task.status !== 'In Progress'" (click)="moveToInProgress()" expand="block" color="primary"
       class="btn-move">In progress

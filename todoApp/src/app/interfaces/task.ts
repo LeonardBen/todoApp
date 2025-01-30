@@ -4,4 +4,6 @@ export interface TodoTask {
     description: string;
     status: string;
     deadline: string;
+    latitude?: number;
+    longitude?: number;
 }

@@ -18,7 +18,19 @@
       <input id="deadline" type="date" [(ngModel)]="task.deadline" name="deadline" required />
     </div>
 
-    <button type="submit">Créer</button>
-    <button type="button" (click)="closeModal()">Annuler</button>
+    <div class="form-group">
+      <button type="button" (click)="getCurrentLocation()">📍 Ajouter ma position</button>
+      <span *ngIf="isFetchingLocation">🔄 Récupération de la localisation...</span>
+    </div>
+
+    <div *ngIf="task.latitude && task.longitude" class="form-group">
+      <p>🌍 Position enregistrée :</p>
+      <p>Latitude : {{ task.latitude }}</p>
+      <p>Longitude : {{ task.longitude }}</p>
+    </div>
+
+
+    <button type="submit" class="btn-modal">Créer</button>
+    <button type="button" (click)="closeModal()" class="btn-modal">Annuler</button>
   </form>
 </div>

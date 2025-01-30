@@ -22,6 +22,8 @@ export class TaskService {
         description: data['description'],
         status: data['status'],
         deadline: data['deadline'],
+        latitude: data['latitude'],
+        longitude: data['longitude'],
       } as TodoTask;
     });
   }
